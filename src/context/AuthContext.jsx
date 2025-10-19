@@ -24,15 +24,13 @@ export const AuthProvider = ({children}) => {
       const response = await axios.get(`${apiKey}/me`, {
         withCredentials: true
       })
-        if (!response.data.success) {
-        toast.error("Please login to continue");
-        setLoading(false)
-        return
-      }
+      if(response.data.success){
       setName(response.data.name);
       setAvatar(response.data.avatar)
       setRole(response.data.role)
       setIsLogin(true)
+      }
+
     } catch (error) {
       console.error("Error fetching user data:", error);
       toast.error("Please login to continue");

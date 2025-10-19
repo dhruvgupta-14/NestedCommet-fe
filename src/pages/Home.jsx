@@ -32,22 +32,35 @@ const Home = () => {
   }, [apiKey]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-50 to-blue-50">
-      <Header />
+    <div className="relative min-h-screen">
+       <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-yellow-50 to-orange-100"></div>
+      {/* Grid pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#f97316_1px,transparent_1px),linear-gradient(to_bottom,#f97316_1px,transparent_1px)] bg-[size:40px_40px] opacity-[0.12]"></div>
 
-      <main className="flex-1 max-w-5xl w-full mx-auto px-4 py-8">
-        <Article commentCount={comments.length} />
+      {/* Decorative blobs */}
+      <div className="absolute top-0 left-0 w-96 h-100 bg-orange-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+      <div
+        className="absolute bottom-0 right-0 w-96 h-100 bg-yellow-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"
+        style={{ animationDelay: "1s" }}
+      ></div>
+      <div className="min-h-screen flex flex-col relative">
+        <Header />
+        <main className="flex-1 max-w-5xl w-full mx-auto px-4 py-8">
+          <Article commentCount={comments.length} />
+          {loading ? (
+            <div className="flex justify-center py-12">
+              <LoaderPinwheel
+                size={48}
+                className="text-orange-500 animate-spin"
+              />
+            </div>
+          ) : (
+            <CommentsSection comments={comments} />
+          )}
+        </main>
 
-        {loading ? (
-          <div className="flex justify-center py-12">
-            <LoaderPinwheel size={48} className="text-blue-500 animate-spin" />
-          </div>
-        ) : (
-          <CommentsSection comments={comments} />
-        )}
-      </main>
-
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 };

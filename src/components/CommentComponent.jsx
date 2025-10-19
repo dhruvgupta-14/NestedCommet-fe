@@ -41,7 +41,7 @@ const CommentComponent = ({ comment, level = 0 }) => {
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between">
             <div className="flex gap-2 items-center">
               <p className="font-semibold text-gray-900 text-sm sm:text-base">{comment.user.name}</p>
-              {role==="admin"&&<Trash size={18} className="cursor-pointer" onClick={deleteComment} />}
+              {role==="admin"&&<Trash size={18} className="cursor-pointer hover:text-red-500" onClick={deleteComment} />}
             </div>
            
             <p className="text-xs sm:text-sm text-gray-400 mt-1 sm:mt-0">
