@@ -4,6 +4,7 @@ This is the **frontend** for the Nested Comment Web App — a modern, responsive
 It provides smooth authentication, protected routes, and a simple admin dashboard to manage user comments efficiently.
 
 ---
+- ⚛️ **Backend Repository** `https://github.com/dhruvgupta-14/NestedCommet-be`
 
 ## 🚀 Tech Stack
 
